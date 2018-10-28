@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit {
   private selectedSearchUnits: SearchUnit[];
   private timeTaken : number = 0;
   private allSelected : boolean = false;
-  private initComplete = false;
+  public initComplete = false;
 
   constructor(private stateService: StateService, private apiService: ApiService, private router: Router, private errorService: ErrorService) { }
 

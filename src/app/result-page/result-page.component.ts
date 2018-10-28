@@ -21,6 +21,8 @@ export class ResultPageComponent implements OnInit {
   }
 
   playAgain() {
+    this.stateService.reset();
+    
     this.router.navigate(['/home']);
   }
 }
