@@ -1,0 +1,14 @@
+<div *ngIf="!initComplete" class="home-page">Loading!!</div>
+<div *ngIf="initComplete" class="home-page">
+
+    <div class="container searchUnitContainer">
+      <search-unit class="searchUnit" *ngFor="let unit of selectedSearchUnits;let i = index" [id]="i"></search-unit>
+    </div>
+    <div class="container">
+      <div class="center time-taken">Time Taken: {{timeTaken}}</div>
+    </div>
+  
+    <div class="center findFalconeDiv">
+      <button class="btn" (click)="findFalcone()" [disabled]="!allSelected">Find Falcone !</button>
+    </div>
+</div>

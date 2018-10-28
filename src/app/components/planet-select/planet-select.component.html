@@ -1,0 +1,9 @@
+<div *ngIf="planetOptions">
+  <label for="planetSelection">Destination</label>
+  <mat-form-field>
+    <mat-select placeholder="Select Planet" [(value)]="selectedPlanet.value" (selectionChange)="valueSelected($event)">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let option of planetOptions" [value]="option.name" [disabled]="option.disabled">{{option.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

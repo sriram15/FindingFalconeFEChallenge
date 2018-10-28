@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="planetSelect">
+    <planet-select [id]="id"></planet-select>
+  </div>
+
+  <div class="imageContaniner">
+    <div *ngIf="searchUnit && searchUnit.selectedPlanet == null" class="round" width="50" height="50">
+      <span></span>
+    </div>
+    <img *ngIf="searchUnit && searchUnit.selectedPlanet" src="assets/planets/{{searchUnit.selectedPlanet.name}}.png" width="50" height="50" />
+  </div>
+
+  <div *ngIf="searchUnit && searchUnit.selectedPlanet; else selectPlanetHelp">
+    <div *ngIf="searchUnit.selectedPlanet.name != ''">
+      <div class="form-group">
+        <vehicle-select [id]="id"></vehicle-select>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #selectPlanetHelp>
+    <div class="vehicle-empty card center">
+      <span><i class="material-icons">
+          arrow_upward
+        </i> <span class="text-with-icon">Select a planet to travel to!</span>
+      </span>
+    </div>
+  </ng-template>
+
+</div>

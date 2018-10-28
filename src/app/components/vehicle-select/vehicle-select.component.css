@@ -1,0 +1,21 @@
+.vehicle{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    min-height: 40px;
+}
+
+.material-icons {
+    font-size: 21px;
+}
+
+.disabledCard {
+    background-color: darkgray;
+}
+
+.selectedCard {
+    background-color: green;
+    color: white;
+    padding-top: 5px;
+    vertical-align: middle;
+}

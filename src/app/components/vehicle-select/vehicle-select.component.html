@@ -1,0 +1,41 @@
+<div *ngIf="allVehicleOptions">
+    <div *ngFor="let vehicleDisplay of allVehicleOptions">
+        <div class="card vehicle" [ngClass]="{'disabledCard': (vehicleDisplay.disabled || vehicleDisplay.available <= 0) && !(selectedVehicle && selectedVehicle.name === vehicleDisplay.vehicle.name), 'selectedCard' : selectedVehicle && selectedVehicle.name === vehicleDisplay.vehicle.name}"
+            (click)="onVehicleSelected(vehicleDisplay)">
+
+            <!--Display div with ripple if not disabled-->
+            <div matRipple [matRippleColor]="green" *ngIf="!vehicleDisplay.disabled && vehicleDisplay.available > 0">
+                <div class="row">
+                    <div class="col-md-7">
+                        {{vehicleDisplay.vehicle.name}}
+                    </div>
+                    <div class="col-md-2">
+                        {{vehicleDisplay.available}}
+                    </div>
+                    <div class="col-md-2" *ngIf="selectedVehicle && selectedVehicle.name === vehicleDisplay.vehicle.name">
+                        <i class="material-icons">
+                            check_circle
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <!--Display div without ripple if disabled-->
+            <div *ngIf="vehicleDisplay.disabled || vehicleDisplay.available <= 0">
+                <div class="row">
+                    <div class="col-md-7">
+                        {{vehicleDisplay.vehicle.name}}
+                    </div>
+                    <div class="col-md-2">
+                        {{vehicleDisplay.available}}
+                    </div>
+                    <div class="col-md-2" *ngIf="selectedVehicle && selectedVehicle.name === vehicleDisplay.vehicle.name">
+                        <i class="material-icons">
+                            check_circle
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="resultPage">
+  <div class="container">
+    <img src="assets/fflogo.png" width="250" />
+
+    <div *ngIf="finalResult; else resultNotAvailable">
+
+      <div *ngIf="finalResult.status === 'success'">
+        <h3>Success ! Congratulations on Finding Falcone. King Shan is mighty pleased.</h3>
+
+        <h5>Time Taken: {{timeTaken}}</h5>
+        <h5>Planet Found: {{finalResult.planet_name}}</h5>
+        <button class="btn" (click)="playAgain()">Click to play again</button>
+      </div>
+
+      <div *ngIf="finalResult.status === 'false'">
+        <h3>Failed on your mission. King Shan is not pleased.</h3>
+        <button class="btn" (click)="playAgain()">Click to play again</button>
+      </div>
+    </div>
+
+    <ng-template #resultNotAvailable>
+      <h3>Oops! Result is not available</h3>
+      <button class="btn" (click)="playAgain()">Click to play again</button>
+    </ng-template>
+  </div>
+
+</div>
